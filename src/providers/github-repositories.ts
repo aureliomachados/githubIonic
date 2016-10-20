@@ -13,8 +13,20 @@ import { Repository } from '../models/repository';
 @Injectable()
 export class GithubRepositories {
 
-  constructor(public http: Http) {
-    console.log('Hello GithubRepositories Provider');
+  constructor(public http: Http) {}
+
+  //load first repositories
+  load(): Observable<Repository[]> {
+    return this.http.get('https://api.github.com/repositories').map(res => <Repository[]>res.json())
+  }
+
+  loadById(id: number): Observable<Repository> {
+    return this.http.get('http://api.github.com/repositories/' + id).map(res => <Repository>res.json())
+  }
+
+  //load repositories of an especific user
+  loadByUser(username: string): Observable<Repository[]> {
+    return this.http.get('https://api.github.com/users/' + username + '/repos').map(res => <Repository[]>res.json())
   }
 
 }

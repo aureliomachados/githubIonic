@@ -10,5 +10,9 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Repos view page</h3>
+  <ion-list>
+    <button ion-item *ngFor="let repository of repositories" (click)="goToDetails(repository.id)">
+      {{ repository.name }}
+    </button>
+  </ion-list>
 </ion-content>

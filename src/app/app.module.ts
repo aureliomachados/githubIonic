@@ -5,8 +5,11 @@ import { MyApp } from './app.component';
 import { UsersPage } from '../pages/users/users';
 import { ReposPage } from '../pages/repos/repos';
 import { OrganisationsPage } from '../pages/organisations/organisations';
+import { UserDetailsPage } from '../pages/user-details/user-details';
+import { RepositoryDetailsPage } from '../pages/repository-details/repository-details';
+//providers imports
 import { GithubUsers } from '../providers/github-users';
-import {UserDetailsPage } from '../pages/user-details/user-details';
+import { GithubRepositories } from '../providers/github-repositories';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,8 @@ import {UserDetailsPage } from '../pages/user-details/user-details';
     UsersPage,
     ReposPage,
     OrganisationsPage,
-    UserDetailsPage
+    UserDetailsPage,
+    RepositoryDetailsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -25,8 +29,9 @@ import {UserDetailsPage } from '../pages/user-details/user-details';
     UsersPage,
     ReposPage,
     OrganisationsPage,
-    UserDetailsPage
+    UserDetailsPage,
+    RepositoryDetailsPage
   ],
-  providers: [GithubUsers] //add GithubUsers to providers
+  providers: [GithubUsers, GithubRepositories] //add GithubUsers to providers
 })
 export class AppModule {}
