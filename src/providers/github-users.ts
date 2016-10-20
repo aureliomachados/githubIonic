@@ -22,4 +22,10 @@ export class GithubUsers {
     return this.http.get('https://api.github.com/users').map(res => <User[]>res.json());
   }
 
+  // Get github user by providing login(username)
+  loadDetails(login: string): Observable<User> {
+    return this.http.get('https://api.github.com/users/' + login)
+      .map(res => <User>(res.json()))
+  }
+
 }
