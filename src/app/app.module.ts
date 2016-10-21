@@ -4,19 +4,20 @@ import { MyApp } from './app.component';
 
 import { UsersPage } from '../pages/users/users';
 import { ReposPage } from '../pages/repos/repos';
-import { OrganisationsPage } from '../pages/organisations/organisations';
+import { OrganizationsPage } from '../pages/organizations/organizations';
 import { UserDetailsPage } from '../pages/user-details/user-details';
 import { RepositoryDetailsPage } from '../pages/repository-details/repository-details';
 //providers imports
 import { GithubUsers } from '../providers/github-users';
 import { GithubRepositories } from '../providers/github-repositories';
+import { GithubOrganizations } from '../providers/github-organizations';
 
 @NgModule({
   declarations: [
     MyApp,
     UsersPage,
     ReposPage,
-    OrganisationsPage,
+    OrganizationsPage,
     UserDetailsPage,
     RepositoryDetailsPage
   ],
@@ -28,10 +29,10 @@ import { GithubRepositories } from '../providers/github-repositories';
     MyApp,
     UsersPage,
     ReposPage,
-    OrganisationsPage,
+    OrganizationsPage,
     UserDetailsPage,
     RepositoryDetailsPage
   ],
-  providers: [GithubUsers, GithubRepositories] //add GithubUsers to providers
+  providers: [GithubUsers, GithubRepositories, GithubOrganizations] //add GithubUsers to providers
 })
 export class AppModule {}
